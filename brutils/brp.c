@@ -33,7 +33,6 @@ int main(int argc, char * argv[])
   for (i = 0; i != pouts_len; ++i)
   {
     sprintf(out_path, output_format, i);
-    printf("creating: %s\n", out_path);
     pouts[i] = try_open(out_path, "wb");
   }
 
