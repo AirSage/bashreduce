@@ -31,12 +31,12 @@ typedef struct
 
 int find_col(int col, line_t * line) {
   for (line->col_beg = line->buf; col != 0 && *line->col_beg != 0; ++line->col_beg) {
-    if ( isspace(*line->col_beg) )
+    if ( *line->col_beg == ',' )
       --col;
   }
   if (*line->col_beg == 0)
     return 0;
-  for (line->col_end = line->col_beg; !isspace(*line->col_end); ++line->col_end) {}
+  for (line->col_end = line->col_beg; (*line->col_end) != ','; ++line->col_end) {}
   return 1;
 }
 
